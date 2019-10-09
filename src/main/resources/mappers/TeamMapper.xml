@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//ibatis.apache.org//DTD Mapper 3.0//EN"      
+    "http://ibatis.apache.org/dtd/ibatis-3-mapper.dtd">
+   
+<mapper namespace="com.lingying.soho.Juliet.mapper.TeamMapper">
+    <insert id="teamReg">
+        INSERT INTO
+            team(tname,experience,uid,
+                temail,tphone,tasktype,
+                taskcount,fintask)
+        VALUE
+            (#{tname},#{experience},#{uid}
+            ,#{temail},#{tphone},#{tasktype}
+            ,#{taskcount},#{fintask})
+    </insert>
+    
+    <select id="findByUid" resultType="com.lingying.soho.Juliet.entity.Team">
+        SELECT
+            *
+        FROM
+            team
+        WHERE
+            uid=#{uid}
+    </select>
+    
+    <select id="findByLimit" resultType="com.lingying.soho.Juliet.entity.TeamV">
+        SELECT
+            tid,tname,experience,
+            tasktype,taskcount,fintask
+        FROM
+            team
+        LIMIT
+            0,4;
+    </select>
+
+    <select id="findById" resultType="com.lingying.soho.Juliet.entity.Team">
+        SELECT
+            *
+        FROM
+            team
+        WHERE
+            tid=#{tid}
+    </select>
+
+    <select id="findTidByTname" resultType="java.lang.Integer">
+        SELECT
+            tid
+        FROM
+            team
+        WHERE
+            tname=#{tname}
+    </select>
+</mapper>

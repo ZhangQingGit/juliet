@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//ibatis.apache.org//DTD Mapper 3.0//EN"      
+    "http://ibatis.apache.org/dtd/ibatis-3-mapper.dtd">
+   
+<mapper namespace="com.lingying.soho.Juliet.mapper.CompanyMapper">
+    <insert id="companyReg">
+        INSERT INTO
+            company(cname, synopsis, uid, cemail, cphone, involve, homepage, capital)
+        VALUE
+            (#{cname},#{synopsis},#{uid},#{cemail},#{cphone},#{involve},#{homepage},#{capital})
+    </insert>
+    
+    <select id="findByUid" resultType="com.lingying.soho.Juliet.entity.Company">
+        SELECT
+            *
+        FROM
+            company
+        WHERE
+            uid=#{uid}
+    </select>
+
+    <select id="getComByName" resultType="com.lingying.soho.Juliet.entity.CompanyV">
+        SELECT
+            cname, cemail, cphone, involve, homepage, capital
+        FROM
+            company
+        WHERE
+            cname=#{cname}
+    </select>
+
+    <select id="findById" resultType="com.lingying.soho.Juliet.entity.Company">
+        SELECT
+            *
+        FROM
+            company
+        WHERE
+            cid=#{cid}
+    </select>
+
+    <select id="findIntentionPnameByCname" resultType="com.lingying.soho.Juliet.entity.Bid_Relation">
+        SELECT
+            DISTINCT pname
+        FROM
+            bid_relation
+        WHERE
+            cname=#{cname}
+    </select>
+
+    <select id="findIntentionTnameByPname" resultType="com.lingying.soho.Juliet.entity.Bid_Relation">
+        SELECT
+            tname
+        FROM
+            bid_relation
+        WHERE
+            pname=#{pname}
+    </select>
+
+    <update id="updateCompanyInformationByUid">
+        UPDATE
+            company
+        SET
+
+    </update>
+
+    <select id="findCidByCname" resultType="java.lang.Integer">
+        SELECT
+            cid
+        FROM
+            company
+        WHERE
+            cname=#{cname}
+    </select>
+</mapper>

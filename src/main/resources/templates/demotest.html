@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script type="text/javascript" src="js/jquery-3.2.1.min.js"></script>
+    <link rel="stylesheet" href="../layui/css/layui.css"/>
+    <script src="../layui/layui.js"></script>
+</head>
+<body>
+
+
+<div class="box1"></div>
+<div class="box11"></div>
+<div class="box2">1</div>
+<div class="box22"></div>
+
+<input type="radio" name="0" value="我要发包" title="我要发包">
+<input type="radio" name="1" value="我要接包" title="我要接包">
+
+<style>
+    .box1{
+        width: 50px;
+        height: 1px;
+        background-color: #007b5f;
+    }
+    .box2{
+        position: absolute;
+        z-index: 3;
+        top: -1px;
+        left: 23.5px;
+        width: 0;
+        height: 0;
+        line-height: 0;
+        border: 5px solid transparent;
+        /*border-bottom-color: red;*/
+    }
+    .box11{
+        position: absolute;
+        z-index: 2;
+        top: -4px;
+        left: 25px;
+        margin-left: -3px;
+        content: "";
+        width: 0;
+        height: 0;
+        line-height: 0;
+        border: 6px solid transparent;
+        border-bottom-color: #007b5f;
+
+    }
+    /*.box11:{
+
+    }*/
+</style>
+
+
+<select  onfocus="setStyle()" id="adasd">
+    <option value ="volvo">Volvo</option>
+    <option value ="saab">Saab</option>
+    <option value="opel">Opel</option>
+    <option value="audi">Audi</option>
+</select>
+
+<script>
+    function setStyle(){
+        alert('asdasdsd');
+    }
+</script>
+
+<form class="layui-form" action="">
+    <div class="layui-inline">
+        <label class="layui-form-label">搜索选择框</label>
+        <div class="layui-input-inline">
+            <select name="modules" lay-verify="required" lay-search="">
+                <option value="">直接选择或搜索选择</option>
+                <option value="1">layer</option>
+                <option value="2">form</option>
+                <option value="3">layim</option>
+            </select>
+        </div>
+    </div>
+
+</form>
+<script>
+    layui.use('form', function(){
+        var form = layui.form; //只有执行了这一步，部分表单元素才会自动修饰成功
+
+        //……
+        form.on('select()', function(data){
+            alert('asdasd');
+            console.log(data.elem); //得到select原始DOM对象
+            console.log(data.value); //得到被选中的值
+            console.log(data.othis); //得到美化后的DOM对象
+            $('#error-tasktype-null').hide();
+        });
+
+        //但是，如果你的HTML是动态生成的，自动渲染就会失效
+        //因此你需要在相应的地方，执行下述方法来进行渲染
+        form.render();
+    });
+</script>
+<script>
+
+    function testdemo() {
+        alert('哈哈');
+    }
+</script>
+
+</body>
+</html>
