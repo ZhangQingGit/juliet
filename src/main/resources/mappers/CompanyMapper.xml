@@ -1,16 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE mapper PUBLIC "-//ibatis.apache.org//DTD Mapper 3.0//EN"      
-    "http://ibatis.apache.org/dtd/ibatis-3-mapper.dtd">
-   
-<mapper namespace="com.lingying.soho.Juliet.mapper.CompanyMapper">
+<!DOCTYPE mapper PUBLIC "-//ibatis.apache.org//DTD Mapper 3.0//EN"
+        "http://ibatis.apache.org/dtd/ibatis-3-mapper.dtd">
+
+<mapper namespace="com.ingooo.juliet.mapper.CompanyMapper">
     <insert id="companyReg">
         INSERT INTO
             company(cname, synopsis, uid, cemail, cphone, involve, homepage, capital)
         VALUE
             (#{cname},#{synopsis},#{uid},#{cemail},#{cphone},#{involve},#{homepage},#{capital})
     </insert>
-    
-    <select id="findByUid" resultType="com.lingying.soho.Juliet.entity.Company">
+
+    <select id="findByUid" resultType="com.ingooo.juliet.entity.Company">
         SELECT
             *
         FROM
@@ -19,7 +19,7 @@
             uid=#{uid}
     </select>
 
-    <select id="getComByName" resultType="com.lingying.soho.Juliet.entity.CompanyV">
+    <select id="getComByName" resultType="com.ingooo.juliet.entity.CompanyV">
         SELECT
             cname, cemail, cphone, involve, homepage, capital
         FROM
@@ -28,7 +28,7 @@
             cname=#{cname}
     </select>
 
-    <select id="findById" resultType="com.lingying.soho.Juliet.entity.Company">
+    <select id="findById" resultType="com.ingooo.juliet.entity.Company">
         SELECT
             *
         FROM
@@ -37,7 +37,7 @@
             cid=#{cid}
     </select>
 
-    <select id="findIntentionPnameByCname" resultType="com.lingying.soho.Juliet.entity.Bid_Relation">
+    <select id="findIntentionPnameByCname" resultType="com.ingooo.juliet.entity.Bid_Relation">
         SELECT
             DISTINCT pname
         FROM
@@ -46,7 +46,7 @@
             cname=#{cname}
     </select>
 
-    <select id="findIntentionTnameByPname" resultType="com.lingying.soho.Juliet.entity.Bid_Relation">
+    <select id="findIntentionTnameByPname" resultType="com.ingooo.juliet.entity.Bid_Relation">
         SELECT
             tname
         FROM

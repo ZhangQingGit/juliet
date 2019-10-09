@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE mapper PUBLIC "-//ibatis.apache.org//DTD Mapper 3.0//EN"      
-    "http://ibatis.apache.org/dtd/ibatis-3-mapper.dtd">
-   
-<mapper namespace="com.lingying.soho.Juliet.mapper.TaskMapper">
+<!DOCTYPE mapper PUBLIC "-//ibatis.apache.org//DTD Mapper 3.0//EN"
+        "http://ibatis.apache.org/dtd/ibatis-3-mapper.dtd">
 
-    <insert id="addTask" parameterType="com.lingying.soho.Juliet.entity.TaskBasic" useGeneratedKeys="true" keyProperty="rid">
+<mapper namespace="com.ingooo.juliet.mapper.TaskMapper">
+
+    <insert id="addTask" parameterType="com.ingooo.juliet.entity.TaskBasic" useGeneratedKeys="true" keyProperty="rid">
     INSERT INTO task(
            cname,cemail
            ,tdate,pname
@@ -34,8 +34,8 @@
             rid = #{rid}
     </update>
 
-    
-    <select id="findById" resultType="com.lingying.soho.Juliet.entity.Task">
+
+    <select id="findById" resultType="com.ingooo.juliet.entity.Task">
         SELECT
             cname,cemail
            ,tdate,pname
@@ -46,7 +46,7 @@
         WHERE
             rid=#{rid}
     </select>
-    <select id="findByLimit" resultType="com.lingying.soho.Juliet.entity.TaskV">
+    <select id="findByLimit" resultType="com.ingooo.juliet.entity.TaskV">
         SELECT
              rid,tdate
             ,pname,pmoney
@@ -56,7 +56,7 @@
         LIMIT 0,6
     </select>
 
-    <select id="taskList" resultType="com.lingying.soho.Juliet.entity.TaskList">
+    <select id="taskList" resultType="com.ingooo.juliet.entity.TaskList">
         SELECT
             task.rid,task.pname,task.psynopsis,task.tasktype,task.findate,task.tdate,task.pmoney,company.cname,company.involve,company.cid
         from
@@ -65,43 +65,43 @@
              task.cname=company.cname
     </select>
 
-    <select id="searchByPnameTaskList" resultType="com.lingying.soho.Juliet.entity.TaskList">
+    <select id="searchByPnameTaskList" resultType="com.ingooo.juliet.entity.TaskList">
         SELECT
-            task.rid,task.pname,task.psynopsis,task.tasktype,task.findate,task.tdate,task.pmoney,company.cname,company.involve,company.cid
+        task.rid,task.pname,task.psynopsis,task.tasktype,task.findate,task.tdate,task.pmoney,company.cname,company.involve,company.cid
         from
-            task,company
+        task,company
         <where>
-             task.cname=company.cname
-        <if test="pname!=null and pname!=''">
-        AND
-            task.pname
-        LIKE
-            "%"#{pname}"%"
-        </if>
-        <if test="tasktype!=null and tasktype!=''">
-        AND
-            task.tasktype=#{tasktype}
-        </if>
+            task.cname=company.cname
+            <if test="pname!=null and pname!=''">
+                AND
+                task.pname
+                LIKE
+                "%"#{pname}"%"
+            </if>
+            <if test="tasktype!=null and tasktype!=''">
+                AND
+                task.tasktype=#{tasktype}
+            </if>
         </where>
     </select>
 
-    <select id="searchByCnameTaskList" resultType="com.lingying.soho.Juliet.entity.TaskList">
+    <select id="searchByCnameTaskList" resultType="com.ingooo.juliet.entity.TaskList">
         SELECT
-            task.rid,task.pname,task.psynopsis,task.tasktype,task.findate,task.tdate,task.pmoney,company.cname,company.involve,company.cid
+        task.rid,task.pname,task.psynopsis,task.tasktype,task.findate,task.tdate,task.pmoney,company.cname,company.involve,company.cid
         from
-            task,company
+        task,company
         <where>
-             task.cname=company.cname
-        <if test="cname!=null and cname!=''">
-        AND
-            company.cname
-        LIKE
-            "%"#{cname}"%"
-        </if>
-        <if test="tasktype!=null and tasktype!=''">
-        AND
-            task.tasktype=#{tasktype}
-        </if>
+            task.cname=company.cname
+            <if test="cname!=null and cname!=''">
+                AND
+                company.cname
+                LIKE
+                "%"#{cname}"%"
+            </if>
+            <if test="tasktype!=null and tasktype!=''">
+                AND
+                task.tasktype=#{tasktype}
+            </if>
         </where>
     </select>
 
@@ -130,7 +130,7 @@
             pname=#{pname}
     </select>
 
-    <select id="findReleaseTaskByCname" resultType="com.lingying.soho.Juliet.entity.Task">
+    <select id="findReleaseTaskByCname" resultType="com.ingooo.juliet.entity.Task">
         SELECT
             rid,pname,
             tdate,psynopsis,
@@ -142,7 +142,7 @@
             cname=#{cortname}
     </select>
 
-    <select id="findReleaseTaskLimitByCname" resultType="com.lingying.soho.Juliet.entity.Task">
+    <select id="findReleaseTaskLimitByCname" resultType="com.ingooo.juliet.entity.Task">
         SELECT
             rid,pname,
             tdate,psynopsis,

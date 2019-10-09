@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE mapper PUBLIC "-//ibatis.apache.org//DTD Mapper 3.0//EN"      
-    "http://ibatis.apache.org/dtd/ibatis-3-mapper.dtd">
-   
-<mapper namespace="com.lingying.soho.Juliet.mapper.TeamMapper">
+<!DOCTYPE mapper PUBLIC "-//ibatis.apache.org//DTD Mapper 3.0//EN"
+        "http://ibatis.apache.org/dtd/ibatis-3-mapper.dtd">
+
+<mapper namespace="com.ingooo.juliet.mapper.TeamMapper">
     <insert id="teamReg">
         INSERT INTO
             team(tname,experience,uid,
@@ -13,8 +13,8 @@
             ,#{temail},#{tphone},#{tasktype}
             ,#{taskcount},#{fintask})
     </insert>
-    
-    <select id="findByUid" resultType="com.lingying.soho.Juliet.entity.Team">
+
+    <select id="findByUid" resultType="com.ingooo.juliet.entity.Team">
         SELECT
             *
         FROM
@@ -22,8 +22,8 @@
         WHERE
             uid=#{uid}
     </select>
-    
-    <select id="findByLimit" resultType="com.lingying.soho.Juliet.entity.TeamV">
+
+    <select id="findByLimit" resultType="com.ingooo.juliet.entity.TeamV">
         SELECT
             tid,tname,experience,
             tasktype,taskcount,fintask
@@ -33,7 +33,7 @@
             0,4;
     </select>
 
-    <select id="findById" resultType="com.lingying.soho.Juliet.entity.Team">
+    <select id="findById" resultType="com.ingooo.juliet.entity.Team">
         SELECT
             *
         FROM

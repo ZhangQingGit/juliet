@@ -80,17 +80,17 @@
             <scope>test</scope>
         </dependency>
 
-        <dependency>
-            <groupId>com.ingooo</groupId>
-            <artifactId>common</artifactId>
-            <version>1.0</version>
-        </dependency>
+<!--        <dependency>-->
+<!--            <groupId>com.ingooo</groupId>-->
+<!--            <artifactId>common</artifactId>-->
+<!--            <version>1.0</version>-->
+<!--        </dependency>-->
 
-        <dependency>
-            <groupId>com.ingooo</groupId>
-            <artifactId>websocket-util</artifactId>
-            <version>1.0</version>
-        </dependency>
+<!--        <dependency>-->
+<!--            <groupId>com.ingooo</groupId>-->
+<!--            <artifactId>websocket-util</artifactId>-->
+<!--            <version>1.0</version>-->
+<!--        </dependency>-->
     </dependencies>
 
     <build>

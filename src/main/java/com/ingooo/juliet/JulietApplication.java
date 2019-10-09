@@ -9,7 +9,7 @@ import org.springframework.context.annotation.Configuration;
  * @author Administrator
  */
 @SpringBootApplication
-@MapperScan("com.lingying.soho.Juliet.mapper")
+@MapperScan("com.ingooo.juliet.mapper")
 @Configuration
 public class JulietApplication {
 
