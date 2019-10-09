@@ -20,6 +20,11 @@
 
     <dependencies>
         <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-websocket</artifactId>
+        </dependency>
+
+        <dependency>
             <groupId>com.github.pagehelper</groupId>
             <artifactId>pagehelper-spring-boot-starter</artifactId>
             <version>1.2.5</version>
@@ -80,17 +85,17 @@
             <scope>test</scope>
         </dependency>
 
-<!--        <dependency>-->
-<!--            <groupId>com.ingooo</groupId>-->
-<!--            <artifactId>common</artifactId>-->
-<!--            <version>1.0</version>-->
-<!--        </dependency>-->
+        <dependency>
+            <groupId>com.ingooo</groupId>
+            <artifactId>common</artifactId>
+            <version>1.0</version>
+        </dependency>
 
-<!--        <dependency>-->
-<!--            <groupId>com.ingooo</groupId>-->
-<!--            <artifactId>websocket-util</artifactId>-->
-<!--            <version>1.0</version>-->
-<!--        </dependency>-->
+        <dependency>
+            <groupId>com.ingooo.websocket</groupId>
+            <artifactId>util</artifactId>
+            <version>1.0</version>
+        </dependency>
     </dependencies>
 
     <build>

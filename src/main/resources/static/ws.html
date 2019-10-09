@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="https://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
+</head>
+<body>
+
+    <button onclick="login()">连接</button>
+
+    <script>
+        function login() {
+            var webSocket = new WebSocket("ws://127.0.0.1:8080/websocket");
+            webSocket.onopen = function (ev) {
+                alert("连接成功");
+            }
+        }
+    </script>
+</body>
+</html>

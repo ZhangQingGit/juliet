@@ -8,7 +8,10 @@ import org.springframework.context.annotation.Configuration;
 /**
  * @author Administrator
  */
-@SpringBootApplication
+@SpringBootApplication(scanBasePackages = {
+        "com.ingooo.juliet",
+        "com.ingooo.websocket.util"
+})
 @MapperScan("com.ingooo.juliet.mapper")
 @Configuration
 public class JulietApplication {
